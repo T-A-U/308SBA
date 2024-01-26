@@ -106,15 +106,36 @@ const CourseInfo = {
       console.log("Error, (invalid input) ")
     } 
     for (let i = 0; i < AssignmentGroup.assignments.length ; i++) {
-      if(AssignmentGroup.assignments[i].points_possible === 0){
-        console.log ("Error, impossible points")
-      }
+     try{
+      if(AssignmentGroup.assignments[i].points_possible == 0) throw "impossible points"
+    }catch(err){
+      console.log ("Error, impossible points")
+    }
     } 
+
     for (let i = 0; i < AssignmentGroup.assignments.length ; i++) {
       if(typeof AssignmentGroup.assignments[i].points_possible == "string"){
         console.log ("Error, use a roman numeral")
       }
     } 
+
+    //if assignment is not due
+    for (let i = 0; i < AssignmentGroup.assignments.length ; i++) {
+     if (AssignmentGroup.assignments[i].due_at > "2024-1-25"){
+      console.log("an assignment is due in the future", AssignmentGroup.assignments[i].due_at)
+     }
+    } //Do not use this assignment in the average
+
+    //if submission is late deduct 10 points
+    // for (let i = 0; i < LearnerSubmissions.length ; i++) {
+    //   if (LearnerSubmissions[i].submission.submitted_at >  AssignmentGroup.assignments[i].due_at){
+    //       LearnerSubmissions[i].submission.score - 10%
+    //       console.log("Score, ",LearnerSubmissions[i].submission.score)
+    //   }
+    //  }
+
+    
+
 
     let result = [
 
