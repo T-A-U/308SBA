@@ -134,11 +134,19 @@ const CourseInfo = {
     //   }
     //  }
 
-    
+
 
 
     let result = [
-
-    ]
+      {
+        "id":125, 
+        "avg" : (LearnerSubmissions[0].submission.score + LearnerSubmissions[1].submission.score) /(AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible)
+      } ,
+      { 
+        "id":132,
+        "avg":(LearnerSubmissions[3].submission.score + LearnerSubmissions[4].submission.score)  /(AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible )
+      } 
+    ] 
+    console.log(result)
   }
   getLearnerData(CourseInfo, AssignmentGroup,LearnerSubmissions)
